@@ -1,0 +1,25 @@
+#include <iostream> 
+#include <unordered_map> 
+using namespace std; 
+  
+// Driver code 
+int main() 
+{
+   int a[]={2,5,3,3,7,9,5,23,45};
+    unordered_map<int,int>hash;
+    for(int i=0;i<9;i++)
+    {
+        cout<<"hash[a[i]]: "<<hash[a[i]]<<endl;  // for checking purpose
+        hash[a[i]]++;
+        cout<<"hash[a[i]]++ : "<<hash[a[i]]<<endl;  // for checking purpose
+    }
+    for (int i=0;i<9;i++)
+    {
+        if (hash[a[i]]>1)
+        {
+            cout<<a[i]<<" is the first repeating element"<<endl;
+            break;
+        }
+    }
+    return 0;
+}
