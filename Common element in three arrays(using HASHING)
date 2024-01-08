@@ -29,6 +29,7 @@ int main()
         if (hash[a[i]]==3)
         {
             cout<<a[i]<<" is the common element"<<endl;
+            hash[a[i]]--;
         }
     }
     return 0;
