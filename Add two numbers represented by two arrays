@@ -1,0 +1,64 @@
+//{ Driver Code Starts
+#include <bits/stdc++.h>
+using namespace std;
+
+// } Driver Code Ends
+
+
+class Solution{
+    public:
+    string calc_Sum(int *a,int n,int *b,int m){
+    // Complete the function
+    string s="";
+    int i=n-1;
+    int j=m-1;
+    int sum;
+    int carry=0;
+    int ans;
+    while(i>=0||j>=0)
+    {
+        if(i>=0&&j>=0)
+        sum=(a[i]+b[j])+carry;
+        else if(j>=0 && i<0)
+        sum=b[j]+carry;
+        else
+        sum=a[i]+carry;
+        ans=sum%10;
+        carry=sum/10;
+        s+=std::to_string(ans);
+        i--;
+        j--;
+    }
+    if(carry)
+    s+=to_string(carry);
+    while(s[s.size()-1]=='0')
+    s.pop_back();
+    reverse(s.begin(), s.end());
+    
+    return s;
+    }
+};
+
+//{ Driver Code Starts.
+int main() {
+    int t;
+	cin>>t;
+	while(t--){
+	    int n;
+	    cin>>n;
+	    int a[n];
+	    for(int i=0;i<n;i++){
+	        cin>>a[i];
+	    }
+	    int m;
+	    cin>>m;
+	    int b[m];
+	    for(int i=0;i<m;i++){
+	        cin>>b[i];
+	    }
+	    Solution ob;
+	    cout << ob.calc_Sum(a,n,b,m) << endl;
+	}
+	return 0;
+}
+// } Driver Code Ends
